@@ -12,9 +12,7 @@ import (
 	"github.com/go-chi/chi"
 )
 
-type WeatherHandler struct {
-	WeatherAPIKey string
-}
+type WeatherHandler struct{}
 
 type Localizacao struct {
 	Cep         string `json:"cep"`
@@ -40,8 +38,8 @@ type WeatherResponse struct {
 	TempK float64 `json:"temp_K"`
 }
 
-func NewWeatherHandler(weatherApiKey string) *WeatherHandler {
-	return &WeatherHandler{weatherApiKey}
+func NewWeatherHandler() *WeatherHandler {
+	return &WeatherHandler{}
 }
 
 func (h *WeatherHandler) GetWeather(w http.ResponseWriter, r *http.Request) {
@@ -69,7 +67,7 @@ func (h *WeatherHandler) GetWeather(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	log.Printf("CEP encontrado: %v", cepResponse)
-	temperatura := buscaTemperatura(h.WeatherAPIKey, cepResponse)
+	temperatura := buscaTemperatura(cepResponse)
 	log.Printf("WeatherApiResponse: %v", temperatura)
 	kelvin := temperatura.Current.TempC + 273
 	response := WeatherResponse{
@@ -114,9 +112,9 @@ func buscaCEP(cep string) Localizacao {
 	return data
 }
 
-func buscaTemperatura(apiKey string, localizacao Localizacao) WeatherApiResponse {
+func buscaTemperatura(localizacao Localizacao) WeatherApiResponse {
 	location := url.QueryEscape(localizacao.Localidade)
-	address := "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + location + "&aqi=no"
+	address := "http://api.weatherapi.com/v1/current.json?key=e01c72f7886a4af1a7932746240704&q=" + location + "&aqi=no"
 	log.Printf("URL WEATHER API: %s", address)
 	req, err := http.Get(address)
 	if err != nil {

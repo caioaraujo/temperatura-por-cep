@@ -1,17 +1,17 @@
 # 422 - digitos insuficientes
-GET http://localhost:8000/temperatura/123
+GET http://localhost:8080/temperatura/123
 
 ###
 
 # 422 - caracteres invalidos
-GET http://localhost:8000/temperatura/0123-567
+GET http://localhost:8080/temperatura/0123-567
 
 ###
 
 # 404
-GET http://localhost:8000/temperatura/12345678
+GET http://localhost:8080/temperatura/12345678
 
 ###
 
 # 200
-GET http://localhost:8000/temperatura/22460900
+GET http://localhost:8080/temperatura/22460900
