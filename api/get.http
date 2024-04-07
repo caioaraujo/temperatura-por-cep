@@ -14,4 +14,4 @@ GET http://localhost:8000/temperatura/12345678
 ###
 
 # 200
-GET http://localhost:8000/temperatura/88085201
+GET http://localhost:8000/temperatura/22460900
