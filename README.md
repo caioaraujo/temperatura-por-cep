@@ -21,3 +21,6 @@ Acesse a api pelo endereço:
 `https://temperatura-por-cep-vnsou6jiaa-uc.a.run.app`
 
 Ex: `https://temperatura-por-cep-vnsou6jiaa-uc.a.run.app/temperatura/22460900`
+
+## Execução dos testes
+Na raíz do projeto, execute `go test ./...`
