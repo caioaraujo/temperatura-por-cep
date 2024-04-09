@@ -14,7 +14,7 @@ Porta padrão: 8080
 ## Api
 Utilize a rota `GET /temperatura/{cep}` onde o valor do CEP deve ser somente números.
 
-Ex: `curl curl http://localhost:8080/temperatura/22460900`
+Ex: `curl http://localhost:8080/temperatura/22460900`
 
 Response ex: `{ "temp_C": 28.5, "temp_F": 28.5, "temp_K": 28.5 }`
 
