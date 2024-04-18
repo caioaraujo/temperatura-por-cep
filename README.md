@@ -2,12 +2,7 @@
 Dado um CEP, verifica a temperatura do local.
 
 ## Execução servidor
-Construa a imagem Docker:
-`docker build --tag temperatura-por-cep .`
-
-Execute a aplicação:
-
-`docker run --publish 8080:8080 temperatura-por-cep`
+`docker-compose up --build`
 
 Porta padrão: 8080
 
